@@ -8,6 +8,8 @@ RUN apt-get update && \
 
 RUN sed -i "s/bind-address.*/bind-address = 0.0.0.0/" /etc/mysql/my.cnf
 
+RUN mysqld --initialize-insecure=on
+
 COPY grant.sql .
 RUN service mysql start && \
     mysql --protocol=socket -uroot <  grant.sql
