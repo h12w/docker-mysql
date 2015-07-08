@@ -7,6 +7,7 @@ RUN apt-get update && \
     apt-get install -q -y -o Dpkg::Options::="--force-confdef" -o Dpkg::Options::="--force-confold" mysql-server
 
 RUN sed -i "s/bind-address.*/bind-address = 0.0.0.0/" /etc/mysql/my.cnf
+RUN sed -i "s/key_buffer.*/key_buffer_size = 16M/" /etc/mysql/my.cnf
 
 RUN mysqld --initialize-insecure=on
 
