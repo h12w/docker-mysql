@@ -9,7 +9,7 @@ RUN apt-get update && \
 RUN sed -i "s/bind-address.*/bind-address = 0.0.0.0/" /etc/mysql/my.cnf
 RUN sed -i "s/key_buffer.*/key_buffer_size = 16M/" /etc/mysql/my.cnf
 
-RUN mysqld --initialize-insecure=on
+RUN mysqld --initialize-insecure=on; exit 0
 
 COPY grant.sql .
 RUN service mysql start && \
