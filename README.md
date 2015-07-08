@@ -1,6 +1,8 @@
 Dockerfile of Mysql for Unit Testing
 ====================================
 
+A Mysql Docker container that starts 300% faster for unit testing.
+
 Usage
 -----
 
